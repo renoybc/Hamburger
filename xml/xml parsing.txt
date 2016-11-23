@@ -1,0 +1,31 @@
+      'Try
+        Dim applist As XmlDocument
+        Dim applistnodelist As XmlNodeList
+        Dim applistnode As XmlNode
+        'Create the XML Document
+        applist = New XmlDocument()
+        'Load the Xml file
+        Dim xmlpath As String
+        xmlpath = Directory.GetCurrentDirectory()
+        xmlpath = xmlpath + "\applist.xml"
+        applist.Load(xmlpath)
+        'Get the list of name nodes 
+        'applistnodelist = applist.SelectNodes("/newapp[apps]")
+        applistnode.SelectNodes("/newapp/apps")
+        'Loop through the nodes
+        For Each applistnode In applistnodelist
+            MsgBox("hlo")
+            'Get the Gender Attribute Value
+            Dim genderAttribute = applistnode.Attributes.GetNamedItem("xmlns").Value
+            'Get the firstName Element Value
+            Dim firstNameValue = applistnode.ChildNodes.Item(0).InnerText
+            'Get the lastName Element Value
+            'Dim lastNameValue = m_node.ChildNodes.Item(1).InnerText
+            'Write Result to the Console
+            MsgBox(genderAttribute)
+            MsgBox(firstNameValue)
+        Next
+        'Catch errorVariable As Exception
+        'Error trapping
+        ' Console.Write(errorVariable.ToString())
+        ' End Try
